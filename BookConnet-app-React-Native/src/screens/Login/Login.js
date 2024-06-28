@@ -81,6 +81,13 @@ const TelaDeLogin = ({ navigation }) => {
         </View>
 
             <TouchableHighlight onPress={() => VerificarLogin()} style={styles.botaoDeEntrar}><Text style={{color: "white", width: "100%", textAlign: "center", fontSize: 25}}>Entrar</Text></TouchableHighlight>
+
+            <TouchableHighlight style={styles.BotaoDeCadastro}><Text style={{
+              width: "100%",
+              color: "lightblue",
+              fontSize: 20,
+              textAlign: "center"}}>Criar conta</Text>
+              </TouchableHighlight>
           </View>
         </View>
       </ImageBackground>

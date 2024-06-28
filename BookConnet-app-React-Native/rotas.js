@@ -70,7 +70,7 @@ export const RotasDrawer = () => {
         name="Início"
         options={{
           headerTitle: "",
-          drawerActiveBackgroundColor: "lightgreen",
+          drawerActiveBackgroundColor: "rgb(53, 229, 9)",
           headerStyle: {
             backgroundColor: "",
           },
@@ -92,7 +92,7 @@ export const RotasDrawer = () => {
         name="Perfil"
         options={{
           headerTitle: "",
-          drawerActiveBackgroundColor: "lightblue",
+          drawerActiveBackgroundColor: "rgb(18, 149, 205)",
           drawerIcon: () => (
             <Image
               source={require("./assets/Icones/user.png")}
@@ -111,7 +111,7 @@ export const RotasDrawer = () => {
         name="Meus livros"
         options={{
           headerTitle: "",
-          drawerActiveBackgroundColor: "red",
+          drawerActiveBackgroundColor: "rgb(250, 0, 255)",
           drawerIcon: () => (
             <Image
               source={require("./assets/Icones/bag.png")}

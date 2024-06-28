@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "rgba(128, 128, 128, 0.2)",
     width: "70%",
-    height: "70%",
+    height: "60%",
     borderRadius: 30,
     borderTopLeftRadius: 0,
     elevation: 2,
@@ -59,7 +59,22 @@ const styles = StyleSheet.create({
     position: "relative"
   },
   botaoDeEntrar: {
-    backgroundColor: "rgba(128, 128, 128, 0.5)", width: "80%", height: "10%", justifyContent: "center", alignItems: "center", elevation:5, marginTop: "5%"
+    backgroundColor: "rgba(128, 128, 128, 0.5)",
+    width: "80%",
+    height: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+    elevation:5,
+    marginTop: "5%"
+  },
+  BotaoDeCadastro: {
+    position: "relative",
+    top: "10%",
+    width: "50%",
+    height: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "15%"
   }
 });
 export default styles;
