@@ -46,7 +46,7 @@ const ModalDeVerificar = () => {
           activeOpacity={1}
           style={[
             VerificarStyles.BotaoDeVerificar,
-            Value.length >= 1 ? { backgroundColor: "black" } : null,
+            Value.length >= 5 ? { backgroundColor: "black" } : null,
           ]}
           onPress={() => {
             Value == senha && Modal == true
@@ -60,8 +60,9 @@ const ModalDeVerificar = () => {
                 width: "100%",
                 textAlign: "center",
                 fontSize: 18,
+                color: "black"
               },
-              Value.length >= 1 ? { color: "white", fontWeight: "bold" } : null,
+              Value.length >= 5 ? { color: "white", fontWeight: "bold" } : null,
             ]}
           >
             Verificar

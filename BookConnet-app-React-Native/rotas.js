@@ -4,7 +4,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import TelaDeLogin from "./src/screens/Login/Login.js";
 import PaginaInicial from "./src/screens/Home/Home.js";
 import TelaDeCadastro from "./src/screens/Cadastro";
-import Favoritos from "./src/screens/Home/Opções/Favoritos/Favoritos.js";
+import MeusLivros from "./src/screens/Home/Opções/MeusLivros/MeusLivros.js";
 import Perfil from "./src/screens/Home/Opções/Perfil/Perfil.js";
 import DrawerCustom from "./src/components/DrawerCustomizado/Drawer.js";
 import PopularesPage from "./src/screens/Home/CaixasDatelaDeInicio/Populares/PopularesPage.js";
@@ -34,7 +34,7 @@ export const RotasStack = () => {
       <Stack.Screen
         name="LivrosPopulares"
         component={PopularesPage}
-        options={{ headerShown: false }}
+        options={{ headerTitle: "" }}
       />
 
       <Stack.Screen
@@ -124,7 +124,7 @@ export const RotasDrawer = () => {
             />
           ),
         }}
-        component={Favoritos}
+        component={MeusLivros}
       />
     </Drawer.Navigator>
   );

@@ -6,7 +6,6 @@ const LivrosPopulares = ({ navigation }) => {
   return (
     <View style={popularStyles.body}>
       <Text style={popularStyles.nomeDaPagina}>Livros populares</Text>
-      <View style={popularStyles.Cabecalho}></View>
       <BoxDosLivros navigation={navigation} />
     </View>
   );

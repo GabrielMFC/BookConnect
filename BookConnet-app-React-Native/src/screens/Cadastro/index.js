@@ -6,70 +6,83 @@ import {
   Image,
   TouchableHighlight,
 } from "react-native";
-import CadastroStyle from "./CadastroCss";
-import { useState } from "react";
+import styles from "../Login/LoginCss";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../Context/userData";
+
 const TelaDeCadastro = () => {
-  const [Usuario, setUsuario] = useState({
+  const [usuarioState, setUsuarioState] = useState({
     email: "",
     senha: "",
   });
+  const { setEmail } = useContext(AuthContext);
+  const { setSenha } = useContext(AuthContext);
+  const { setNome } = useContext(AuthContext)
+  var verificar = false;
+  function VerificarLogin() {
+    if (
+      !usuarioState.Email.includes("@") ||
+      usuarioState.Email.split("@").length - 1 > 1 ||
+      !usuarioState.Email.includes(".") ||
+      usuarioState.Email.split(".").length - 1 > 1 ||
+      !usuarioState.Email.includes("com")
+    ) {
+      alert("E-mail inválido!");
+      return;
+    }
+    if (usuarioState.Senha.length < 5) {
+      alert("Senha muito curta, o tamanho mínimo é de 5 caracteres.");
+      return;
+    }
+    verificar = true;
+    if (verificar) {
+      setNome(usuarioState.Nome)
+      setEmail(usuarioState.Email);
+      setSenha(usuarioState.Senha);
+      navigation.navigate("Home");
+    }
+  }
   return (
-    <View style={CadastroStyle.centralizarFlexi}>
+    <View style={styles.centralizarFlexi}>
       <ImageBackground
-        style={CadastroStyle.ImagemDeFundo}
-        source={require("../../../assets/Imagens/TelaDeCadastro.png")}
+        style={styles.ImagemDeFundo}
+        source={require("../../../assets/Imagens/BackgroundBilioteca.jpeg")}
+        blurRadius={20}
       >
-        <Text style={CadastroStyle.TituloLogin}>Cadastro</Text>
+        <View style={styles.caixaCinza}>
+          <View style={styles.caixaPreta}>
 
-        <View
-          style={{
-            width: "80%",
-            height: "6%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
-            top: "10%",
-            margin: "5%",
-          }}
-        >
-          <TextInput
-            placeholder="Digite seu e-mail"
-            style={CadastroStyle.input}
-          ></TextInput>
-          <Image
-            style={CadastroStyle.iconDentroDoInput}
-            source={require("../../../assets/Icones/IconEmail.png")}
-          ></Image>
+            <Image style={styles.imagemDePerfil} source={require("../../../assets/Imagens/profile-user.png")}/>
+
+            <View value={usuarioState.Nome} style={styles.centralizarInputFlex}>
+        <TextInput value={usuarioState.Nome}  placeholder="Nome: " placeholderTextColor={"gray"} style={styles.Input} onChangeText={(value) => setUsuarioState((prevState) => ({
+          ...prevState,
+          Nome: value
+        }))}></TextInput>
+        <View style={styles.LinhaBrancaEmbaixoDoInput}></View>
         </View>
 
-        <View
-          style={{
-            width: "80%",
-            height: "6%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
-            top: "10%",
-            margin: "5%",
-          }}
-        >
-          <TextInput
-            placeholder="Digite sua senha"
-            style={CadastroStyle.input}
-          ></TextInput>
-          <Image
-            style={CadastroStyle.iconDentroDoInput}
-            source={require("../../../assets/Icones/IconSenha.png")}
-          ></Image>
+        <View style={styles.centralizarInputFlex}>
+        <TextInput value={usuarioState.Email} placeholder="@Email: " placeholderTextColor={"gray"} style={styles.Input} onChangeText={(value) => setUsuarioState((prevState) => ({
+          ...prevState,
+          Email: value
+        }))}></TextInput>
+        <View style={styles.LinhaBrancaEmbaixoDoInput}></View>
         </View>
 
-        <TouchableHighlight underlayColor="blue" style={CadastroStyle.botoes}>
-          <View style={CadastroStyle.div}>
-            <Text style={CadastroStyle.TextoDentroDoBotao}>Criar conta</Text>
+        <View style={styles.centralizarInputFlex}>
+        <TextInput value={usuarioState.Senha} placeholder="Senha: " placeholderTextColor={"gray"} style={styles.Input} onChangeText={(value) => setUsuarioState((prevState) => ({
+          ...prevState,
+          Senha: value
+        }))}></TextInput>
+        <View style={styles.LinhaBrancaEmbaixoDoInput}></View>
+        </View>
+
+            <TouchableHighlight onPress={() => VerificarLogin()} style={styles.botaoDeEntrar}><Text style={{color: "white", width: "100%", textAlign: "center", fontSize: 25}}>Criar conta</Text></TouchableHighlight>
+
+           
           </View>
-        </TouchableHighlight>
+        </View>
       </ImageBackground>
     </View>
   );

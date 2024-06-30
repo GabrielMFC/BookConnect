@@ -31,7 +31,6 @@ const CompraStyles = StyleSheet.create({
     top: "10%",
     width: "45%",
     height: "40%",
-    backgroundColor: "red",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -42,11 +41,11 @@ const CompraStyles = StyleSheet.create({
     width: "100%",
     textAlign: "center",
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 20,
   },
   Texto: {
     width: "100%",
-    fontSize: 13,
+    fontSize: 20,
     textAlign: "center",
   },
   BotaoDeComprar: {

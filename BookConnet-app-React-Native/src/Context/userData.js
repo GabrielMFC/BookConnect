@@ -7,10 +7,11 @@ function AuthProvider({ children }) {
   const [email, setEmail] = useState(null);
   const [senha, setSenha] = useState(null);
   const [Modal, setModal] = useState(false);
+  const [livros, setLivros] = useState([])
 
   return (
     <AuthContext.Provider
-      value={{ email, setEmail, senha, setSenha, Modal, setModal, nome, setNome }}
+      value={{ email, setEmail, senha, setSenha, Modal, setModal, nome, setNome, livros, setLivros }}
     >
       {children}
     </AuthContext.Provider>

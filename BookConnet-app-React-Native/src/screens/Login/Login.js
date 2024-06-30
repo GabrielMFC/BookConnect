@@ -6,6 +6,7 @@ import {
   TouchableHighlight,
   Image,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useContext, useState } from "react";
 import styles from "./LoginCss";
 import { AuthContext } from "../../Context/userData";
@@ -82,7 +83,7 @@ const TelaDeLogin = ({ navigation }) => {
 
             <TouchableHighlight onPress={() => VerificarLogin()} style={styles.botaoDeEntrar}><Text style={{color: "white", width: "100%", textAlign: "center", fontSize: 25}}>Entrar</Text></TouchableHighlight>
 
-            <TouchableHighlight style={styles.BotaoDeCadastro}><Text style={{
+            <TouchableHighlight onPress={() => navigation.navigate("Cadastro")} style={styles.BotaoDeCadastro}><Text style={{
               width: "100%",
               color: "lightblue",
               fontSize: 20,

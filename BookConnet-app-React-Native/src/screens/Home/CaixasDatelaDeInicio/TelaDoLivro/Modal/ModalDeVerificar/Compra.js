@@ -1,18 +1,29 @@
 import { View, Text, Image, TouchableHighlight } from "react-native";
 import CompraStyles from "./CompraCss";
-const Comprar = ({ route }) => {
+import { AuthContext } from "../../../../../../Context/userData";
+import { useNavigation } from "@react-navigation/native";
+import { useState, useContext, } from "react";
+import { Livros } from "../../../../Home";
+const Comprar = ({ route, navigation }) => {
+  const Navigation = useNavigation()
+  const context = useContext(AuthContext)
+  const { Modal, setModal } = useContext(AuthContext);
+  const setLivros = context.setLivros
+  const livros = context.livros
+
   const { nome, autor, preco, capa, descricao } = route.params;
   return (
     <View style={CompraStyles.body}>
       <View style={CompraStyles.Modal}>
         <Text style={CompraStyles.Titulo}>{nome}</Text>
         <View style={CompraStyles.CaixadeTexto}>
-          <Text style={CompraStyles.Texto}>Autor: {autor}</Text>
+          <Text style={CompraStyles.Texto}> {autor}</Text>
           <Text style={CompraStyles.Texto}>Valor: R${preco}</Text>
         </View>
         <Image style={CompraStyles.capa} source={capa} />
+        
+        <TouchableHighlight style={CompraStyles.BotaoDeComprar} onPress={() => {setLivros([...livros,  {Nome: nome, Autor: autor, Capa: capa} ]), setModal(!Modal) ,Navigation.navigate("Home")}}>
 
-        <TouchableHighlight style={CompraStyles.BotaoDeComprar}>
           <View style={CompraStyles.posicionarElementosNoBotaoDeComprar}>
             <Image
               style={{
